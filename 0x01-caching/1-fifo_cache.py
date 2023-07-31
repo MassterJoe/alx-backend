@@ -16,10 +16,11 @@ class FIFOCache(BaseCaching):
         """ it puts values into the dictionary"""
         if key is None or item is None:
             return
+        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
+            first_item = next(iter(self.cache_data))
+            self.cache_data.pop(first_item)
+            print("DISCARD: {}".format(first_item))
         self.cache_data[key] = item
-        if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
-            key, value = self.cache_data.popitem()
-            print("DISCARD: {}".format(key))
 
     def get(self, key):
         """ gets the value of the dict key"""
