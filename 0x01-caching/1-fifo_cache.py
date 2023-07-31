@@ -13,7 +13,8 @@ class FIFOCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
-        """ it puts values into the dictionary"""
+        """ it puts values into the dictionary
+        and evicts items based on the LIFO algorithm"""
         if key is None or item is None:
             return
         if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
