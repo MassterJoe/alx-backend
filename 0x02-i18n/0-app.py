@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""  Create a single / route and an index.html template
- that simply outputs “Welcome to Holberton” as page title (<title>)
-and “Hello world” as header (<h1>)."""
-
 from flask import Flask, render_template
 from flask_babel import Babel
 
@@ -20,11 +15,19 @@ app.config.from_object(Config)
 
 
 @app.route('/')
+@app.route('/index')
 def index1():
-    """ it returns 0-index.html"""
-    return render_template('0-index.html')
+    """ Renders 0-index.html with custom data """
+    page_title = "Welcome to Holberton"
+    header = "Hello world"
+    return render_template('0-index.html',
+                           page_title=page_title, header=header)
 
 
 @app.route('/index2')
 def index2():
-    return render_template('1-index.html')
+    """ Renders 1-index.html with custom data """
+    page_title = "This is the second page"
+    header = "This is the second page"
+    return render_template('1-index.html',
+                           page_title=page_title, header=header)
