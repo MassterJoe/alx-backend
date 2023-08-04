@@ -23,6 +23,7 @@ def get_index():
     """ Renders 1-index.html with custom data """
     return render_template('2-index.html')
 
+
 @babel.localeselector
 def get_locale():
     """ get locale function"""
