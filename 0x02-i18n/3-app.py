@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ configure the flask app and create a babe; object"""
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, _
 
 
 app = Flask(__name__)
@@ -25,9 +25,11 @@ def get_locale():
 
 
 @app.route('/')
-def get_index():
+def get_index() -> str:
     """ Renders 1-index.html with custom data """
-    return render_template('3-index.html')
+    return render_template('3-index.html',
+                           title=_('home_title'),
+                           home_header=_('home_header'))
 
 
 if __name__ == '__main__':
