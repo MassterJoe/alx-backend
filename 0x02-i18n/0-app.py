@@ -15,7 +15,6 @@ app.config.from_object(Config)
 
 
 @app.route('/')
-@app.route('/index')
 def index1():
     """ Renders 0-index.html with custom data """
     page_title = "Welcome to Holberton"
