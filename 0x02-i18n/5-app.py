@@ -40,12 +40,9 @@ users = {
 def get_user() -> Union[Dict, None]:
     """get user funtion"""
     login_id = request.args.get('login_as')
-    if login_id is None or not login_id.isdigit():
-        return None
-
-    login_id = int(login_id)
-    user = users.get(login_id)
-    return user
+    if login_id:
+        return users.get(int(login_id))
+    return None
 
 
 @app.before_request
@@ -60,8 +57,7 @@ def before_request():
 @app.route('/')
 def get_index():
     """ Renders 1-index.html with custom data """
-    user = g.user
-    return render_template('5-index.html', user=user)
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':
