@@ -33,3 +33,6 @@ msgstr ""
 msgid "not_logged_in"
 msgstr ""
 
+msgid "current_time_is"
+msgstr ""
+
