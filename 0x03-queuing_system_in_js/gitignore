@@ -1,5 +1,5 @@
-node_modules/
 package.json
 package-lock.json
-redis-6.0.10/
 redis-6.0.10.tar.gz
+/alx-backend/0x03-queuing_system_in_js/node_modules
+/alx-backend/0x03-queuing_system_in_js/redis-6.0.10
